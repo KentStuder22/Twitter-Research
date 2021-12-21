@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Covid-19 Labeling Website</title>
+</head>
+<div id="Demo" style="height: 65px; max-height:1000px">
+    <div id="Main">
+        <table id="TweetTBL" style="table-layout: fixed;word-break: normal;">
+            <caption id="tableCap">Tweet Information</caption>
+            <thead>
+                <tr>
+                    <th width="1">NO.</th>
+                    <th width="15">Created At</th>
+                    <th width="70">Full Text</th>
+                    <th width="1">Retweets</th>
+                    <th width="1">Favorites</th>
+                    <th width="3">URL</th>
+                    <th width="1">Result</th>
+                    <th width="7">Remark</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for tweet in tweets%}
+                <tr>
+                    <td>1</td>
+                    <td>{{ tweet['datetime'] }}</td>
+                    <td>{{ tweet['text'] }}</td>
+                    <td>{{ tweet['nbr_retweet'] }}</td>
+                    <td>{{ tweet['nbr_favorit'] }}</td>
+                    <td>{{ tweet['url'] }}</td>
+                    <td>
+                        <input type="checkbox" name="resultBox" style="width: 35px;height: 35px;">
+                    </td>
+                    <td>
+                        <textarea name="remark" id="remarkBox" style="width: 100%;height: 100%;font-size: 30px;"></textarea>
+                    </td>
+
+                </tr>
+                {%end%}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</html>
