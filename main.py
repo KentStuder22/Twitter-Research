@@ -1,7 +1,5 @@
-from os import path
-import json
+import os
 from posixpath import join
-import config
 import pymongo
 import tornado.ioloop
 import tornado.web
@@ -10,23 +8,8 @@ from bson import ObjectId
 from pymongo.mongo_client import MongoClient
 from sshtunnel import SSHTunnelForwarder
 
-#Settings for Mongo Server
-MONGODB_SERVER = '119.45.163.114'
-MONGO_USER = 'kent'
-MONGO_PASSWORD = 'kent'
-MONGODB_PORT = 27017
-MONGODB_DB = 'TweetScraper'
-
-server = SSHTunnelForwarder(
-    MONGODB_SERVER,
-    ssh_username=MONGO_USER,
-    ssh_password=MONGO_PASSWORD,
-    remote_bind_address=('127.0.0.1', MONGODB_PORT),
-)
-
-server.start()
-connection = pymongo.MongoClient('127.0.0.1', server.local_bind_port)
-db = connection[MONGODB_DB]
+client = MongoClient("mongodb://kent:viygF&$^&VFJF@119.45.163.114:27017/TweetScraper")
+db = client["TweetScraper"]
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -39,7 +22,7 @@ class MainHandler(tornado.web.RequestHandler):
         
         limit = 20
         i = 1
-        for tweet in db["tweetday"].find():
+        for tweet in db["tweetday"].find( { "is_labeled" : { "$in": [0, 'false', 'N/A', None]}}):
             datetimes.append(tweet['created_at'])
             texts.append(tweet['text'])
             retweets.append(tweet['retweet_cou'])
@@ -54,16 +37,19 @@ class MainHandler(tornado.web.RequestHandler):
 
 def setUpApp(): 
 
+    settings = {
+        "static_path": os.path.join(os.path.dirname(__file__), "static")
+    }
     app = tornado.web.Application(
         [
             (r"/", MainHandler)
         ],
+        **settings,
         db = db
     )
     return app
 
 if __name__=="__main__":
-    print(config.__version__)
     app = setUpApp()
     app.listen(8888)
     tornado.ioloop.IOLoop.current().start()
