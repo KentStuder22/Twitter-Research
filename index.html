@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ static_url('main.css') }}">
     <title>Twitter Covid-19 Labeling Website</title>
 </head>
-<body>
+<body onload="search()">
     <div id="Demo" style="height: 65px; max-height:1000px">
         <div id="Main">
             <table id="TweetTBL" style="table-layout: fixed;word-break: normal;">
@@ -25,10 +25,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="dataRow">
                         <td>1</td>
                         <td>{{ datetimes[0] }}</td>
-                        <td>{{ texts[0] }}</td>
+                        <td class="dataText">{{ texts[0] }}</td>
                         <td>{{ retweets[0] }}</td>
                         <td>{{ favorites[0] }}</td>
                         <td>{{ urls[0] }}</td>
@@ -40,10 +40,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>2</td>
                         <td>{{ datetimes[1] }}</td>
-                        <td>{{ texts[1] }}</td>
+                        <td class="dataText">{{ texts[1] }}</td>
                         <td>{{ retweets[1] }}</td>
                         <td>{{ favorites[1] }}</td>
                         <td>{{ urls[1] }}</td>
@@ -55,10 +55,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>3</td>
                         <td>{{ datetimes[2] }}</td>
-                        <td>{{ texts[2] }}</td>
+                        <td class="dataText">{{ texts[2] }}</td>
                         <td>{{ retweets[2] }}</td>
                         <td>{{ favorites[2] }}</td>
                         <td>{{ urls[2] }}</td>
@@ -70,10 +70,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>4</td>
                         <td>{{ datetimes[3] }}</td>
-                        <td>{{ texts[3] }}</td>
+                        <td class="dataText">{{ texts[3] }}</td>
                         <td>{{ retweets[3] }}</td>
                         <td>{{ favorites[3] }}</td>
                         <td>{{ urls[3] }}</td>
@@ -85,10 +85,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>5</td>
                         <td>{{ datetimes[4] }}</td>
-                        <td>{{ texts[4] }}</td>
+                        <td class="dataText">{{ texts[4] }}</td>
                         <td>{{ retweets[4] }}</td>
                         <td>{{ favorites[4] }}</td>
                         <td>{{ urls[4] }}</td>
@@ -100,10 +100,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>6</td>
                         <td>{{ datetimes[5] }}</td>
-                        <td>{{ texts[5] }}</td>
+                        <td class="dataText">{{ texts[5] }}</td>
                         <td>{{ retweets[5] }}</td>
                         <td>{{ favorites[5] }}</td>
                         <td>{{ urls[5] }}</td>
@@ -115,10 +115,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>7</td>
                         <td>{{ datetimes[6] }}</td>
-                        <td>{{ texts[6] }}</td>
+                        <td class="dataText">{{ texts[6] }}</td>
                         <td>{{ retweets[6] }}</td>
                         <td>{{ favorites[6] }}</td>
                         <td>{{ urls[6] }}</td>
@@ -130,10 +130,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>8</td>
                         <td>{{ datetimes[7] }}</td>
-                        <td>{{ texts[7] }}</td>
+                        <td class="dataText">{{ texts[7] }}</td>
                         <td>{{ retweets[7] }}</td>
                         <td>{{ favorites[7] }}</td>
                         <td>{{ urls[7] }}</td>
@@ -145,10 +145,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>9</td>
                         <td>{{ datetimes[8] }}</td>
-                        <td>{{ texts[8] }}</td>
+                        <td class="dataText">{{ texts[8] }}</td>
                         <td>{{ retweets[8] }}</td>
                         <td>{{ favorites[8] }}</td>
                         <td>{{ urls[8] }}</td>
@@ -160,10 +160,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>10</td>
                         <td>{{ datetimes[9] }}</td>
-                        <td>{{ texts[9] }}</td>
+                        <td class="dataText">{{ texts[9] }}</td>
                         <td>{{ retweets[9] }}</td>
                         <td>{{ favorites[9] }}</td>
                         <td>{{ urls[9] }}</td>
@@ -175,10 +175,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>11</td>
                         <td>{{ datetimes[10] }}</td>
-                        <td>{{ texts[10] }}</td>
+                        <td class="dataText">{{ texts[10] }}</td>
                         <td>{{ retweets[10] }}</td>
                         <td>{{ favorites[10] }}</td>
                         <td>{{ urls[10] }}</td>
@@ -190,10 +190,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>12</td>
                         <td>{{ datetimes[11] }}</td>
-                        <td>{{ texts[11] }}</td>
+                        <td class="dataText">{{ texts[11] }}</td>
                         <td>{{ retweets[11] }}</td>
                         <td>{{ favorites[11] }}</td>
                         <td>{{ urls[11] }}</td>
@@ -205,10 +205,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>13</td>
                         <td>{{ datetimes[12] }}</td>
-                        <td>{{ texts[12] }}</td>
+                        <td class="dataText">{{ texts[12] }}</td>
                         <td>{{ retweets[12] }}</td>
                         <td>{{ favorites[12] }}</td>
                         <td>{{ urls[12] }}</td>
@@ -220,10 +220,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>14</td>
                         <td>{{ datetimes[13] }}</td>
-                        <td>{{ texts[13] }}</td>
+                        <td class="dataText">{{ texts[13] }}</td>
                         <td>{{ retweets[13] }}</td>
                         <td>{{ favorites[13] }}</td>
                         <td>{{ urls[13] }}</td>
@@ -235,10 +235,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>15</td>
                         <td>{{ datetimes[14] }}</td>
-                        <td>{{ texts[14] }}</td>
+                        <td class="dataText">{{ texts[14] }}</td>
                         <td>{{ retweets[14] }}</td>
                         <td>{{ favorites[14] }}</td>
                         <td>{{ urls[14] }}</td>
@@ -250,10 +250,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>16</td>
                         <td>{{ datetimes[15] }}</td>
-                        <td>{{ texts[15] }}</td>
+                        <td class="dataText">{{ texts[15] }}</td>
                         <td>{{ retweets[15] }}</td>
                         <td>{{ favorites[15] }}</td>
                         <td>{{ urls[15] }}</td>
@@ -265,10 +265,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>17</td>
                         <td>{{ datetimes[16] }}</td>
-                        <td>{{ texts[16] }}</td>
+                        <td class="dataText">{{ texts[16] }}</td>
                         <td>{{ retweets[16] }}</td>
                         <td>{{ favorites[16] }}</td>
                         <td>{{ urls[16] }}</td>
@@ -280,10 +280,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>18</td>
                         <td>{{ datetimes[17] }}</td>
-                        <td>{{ texts[17] }}</td>
+                        <td class="dataText">{{ texts[17] }}</td>
                         <td>{{ retweets[17] }}</td>
                         <td>{{ favorites[17] }}</td>
                         <td>{{ urls[17] }}</td>
@@ -295,10 +295,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>19</td>
                         <td>{{ datetimes[18] }}</td>
-                        <td>{{ texts[18] }}</td>
+                        <td class="dataText">{{ texts[18] }}</td>
                         <td>{{ retweets[18] }}</td>
                         <td>{{ favorites[18] }}</td>
                         <td>{{ urls[18] }}</td>
@@ -310,10 +310,10 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="dataRow">
                         <td>20</td>
                         <td>{{ datetimes[19] }}</td>
-                        <td>{{ texts[19] }}</td>
+                        <td class="dataText">{{ texts[19] }}</td>
                         <td>{{ retweets[19] }}</td>
                         <td>{{ favorites[19] }}</td>
                         <td>{{ urls[19] }}</td>
@@ -328,6 +328,19 @@
                 </tbody>
             </table>
         </div>
+        <script type="text/javascript">
+            function search() {
+                let textField = document.querySelectorAll("#dataText");
+
+                var label1 = "COVID-19";
+                var label2 = "Tested positive";
+                for(var i = 0; i < textField.length; i++) {
+                    if(textField[i].textContent.contains(label1) || textField[i].textContent.contains(label2)) {
+                        textField[i].style.backgroundColor = "yellow"
+                    }
+                }
+            }
+        </script>
 </body>
 </div>
 </html>
